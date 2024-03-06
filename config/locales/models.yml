@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      admin: Administrador
+      article: Artigo
+    attributes:
+      admin:
+        id: Identificador
+        email: Email
+        encrypted_password: Senha encriptada
+        reset_password_token: Token de redefinição de senha
+        reset_password_sent_at: Data de envio do token de redefinição de senha
+        remember_created_at: Data de criação do token de autenticação
+        created_at: Data de criação
+        updated_at: Data de atualização
+      article:
+        id: Identificador
+        title: Título
+        body: Conteúdo
+        created_at: Data de criação
+        updated_at: Data de atualização
+        slug: URL amigável
