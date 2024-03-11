@@ -44,7 +44,7 @@ gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
 gem "friendly_id", "~> 5.4"
 gem "devise", "~> 4.8"
-gem "dotenv"
+gem "dotenv-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
