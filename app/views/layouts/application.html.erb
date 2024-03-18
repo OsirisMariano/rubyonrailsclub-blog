@@ -14,5 +14,10 @@
     <h1>Layout público</h1>
     <%= image_tag "logo.svg" %>
     <%= yield %>
+
+    <%= javascript_include_tag "menu", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "posts-grid", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "jquery/jquery1.min", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "slick/slick.min", "data-turbo-track": "reload" %>
   </body>
 </html>
