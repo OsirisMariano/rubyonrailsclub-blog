@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :administrate do
     resources :articles do
       member do
-        delete :delete_cover_image
+        delete :destroy_cover_image
       end
     end
   end
