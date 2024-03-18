@@ -68,7 +68,7 @@ module Administrate
       @article.cover_image.purge
 
       respond_to do |format|
-        format.tubo_stream { render(turbo_stream: turbo_stream.remove(@article)) }
+        format.turbo_stream { render(turbo_stream: turbo_stream.remove(@article)) }
       end
     end
 
