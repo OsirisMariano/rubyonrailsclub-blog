@@ -12,12 +12,9 @@
 
   <body>
     <%= render "layouts/shared/aplication/header" %>
-    <%= render "layouts/shared/aplication/main_banner" %>
-    <%= render "layouts/shared/aplication/articles" %>
-    <%= render "layouts/shared/aplication/categories" %>
+    <%= yield %>
     <%= render "layouts/shared/aplication/footer" %>
     
-    <%= yield %>
 
     <%= javascript_include_tag "menu", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "posts-grid", "data-turbo-track": "reload" %>
