@@ -6,7 +6,7 @@
     </div>
     <div class="grid" id="postGridHome">
 
-      <%= @articles.each do |article| %>
+      <% @articles.each do |article| %>
         <%= render partial: "article", locals: {article: article } %>
       <% end %>
 
