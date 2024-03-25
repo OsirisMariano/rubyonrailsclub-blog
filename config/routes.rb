@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
   get "welcome/index"
+
   namespace :administrate do
+    get "/" => "dashboards#index"
     resources :articles do
       member do
         delete :destroy_cover_image
