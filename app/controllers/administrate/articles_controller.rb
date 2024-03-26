@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 module Administrate
-  class ArticlesController < ApplicationController
-    before_action :authenticate_admin!
+  class ArticlesController < AdministrateController
+    
     before_action :set_article, only: [:show, :edit, :update, :destroy, :destroy_cover_image]
+
 
     # GET /articles or /articles.json
     def index
@@ -66,7 +67,7 @@ module Administrate
       @article.cover_image.purge
 
       respond_to do |format|
-        format.tubo_stream { render(turbo_stream: turbo_stream.remove(@article)) }
+        format.turbo_stream { render(turbo_stream: turbo_stream.remove(@article)) }
       end
     end
 
