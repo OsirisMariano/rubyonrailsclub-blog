@@ -6,7 +6,7 @@ module Administrate
 
     # GET /articles or /articles.json
     def index
-      @articles = Article.order(created_at: :desc)
+      @articles = Article.includes(creategory).all
     end
 
     # GET /articles/1 or /articles/1.json
