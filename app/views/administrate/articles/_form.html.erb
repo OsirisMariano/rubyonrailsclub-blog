@@ -23,11 +23,14 @@
 
     <div>
       <%= form.label :cover_image, style: "display: block", class: "label-input-file" %>
+<<<<<<<<< Temporary merge branch 1
       <%= form.file_field :cover_image if (params[:action] != "show") %>
+=========
+      <%= form.file_field :cover_image, disabled: (params[:action] == "show") %>
+>>>>>>>>> Temporary merge branch 2
   
       <div id=<%= dom_id(article) %>>
         <%= image_tag article.cover_image.variant(:thumb) if article.cover_image.attached? %>
-
         <%= link_to "Remover",
               destroy_cover_image_administrate_article_path(article),
               data: { "turbo-confirm": "Tem certeza?", "turbo-method": :delete } if article.cover_image.attached? && (params[:action] != "show") %>
