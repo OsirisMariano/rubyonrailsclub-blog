@@ -3,15 +3,13 @@
     <div class="input-row">
       <div class="input-container">
         <%= form.label :title, class:"label" %>
-        <%= form.text_field :title, placeholder:"Digite aqui o título do post", class:"input", 
-        disabled: (params[:action] == "show") %>
+        <%= form.text_field :title, disabled: (params[:action] == "show"), placeholder:"Digite aqui o título do post", class:"input" %>
       </div>
     </div>
     <div class="input-row">
       <div class="input-container">
         <%= form.label :body, class:"label" %>
-        <%= form.text_area :body, rows:"18", class:"textarea", placeholder:"Escreva aqui o conteúdo do post", 
-        disabled: (params[:action] == "show") %>
+        <%= form.text_area :body, disabled: (params[:action] == "show"), rows:"18", class:"textarea", placeholder:"Escreva aqui o conteúdo do post" %>
       </div>
     </div>
 
@@ -26,16 +24,14 @@
     <div>
       <%= form.label :cover_image, style: "display: block", class: "label-input-file" %>
       <%= form.file_field :cover_image, disabled: (params[:action] == "show") %>
-  
       <div id=<%= dom_id(article) %>>
         <%= image_tag article.cover_image.variant(:thumb) if article.cover_image.attached? %>
-
         <%= link_to "Remover",
               destroy_cover_image_administrate_article_path(article),
-              data: { "turbo-confirm": "Tem certeza?", "turbo-method": :delete } if 
-              article.cover_image.attached? %>
+              data: { "turbo-confirm": "Tem certeza?", "turbo-method": :delete } if article.cover_image.attached? && (params[:action] != "show") %>
       </div>
     </div>
+      <%= button_to "Apaga artigo", [:administrate, @article], data: {turbo: false}, method: :delete, class: "button small" if (params[:action] == "show") %>
     <%= form.submit style: "display: none;" %>
   <% end %>
 </div>
