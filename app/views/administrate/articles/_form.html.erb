@@ -3,33 +3,37 @@
     <div class="input-row">
       <div class="input-container">
         <%= form.label :title, class:"label" %>
-        <%= form.text_field :title, placeholder:"Digite aqui o título do post", class:"input" %>
+        <%= form.text_field :title, placeholder:"Digite aqui o título do post", class:"input", 
+        disabled: (params[:action] == "show") %>
       </div>
     </div>
     <div class="input-row">
       <div class="input-container">
         <%= form.label :body, class:"label" %>
-        <%= form.text_area :body, rows:"18", class:"textarea", placeholder:"Escreva aqui o conteúdo do post" %>
+        <%= form.text_area :body, rows:"18", class:"textarea", placeholder:"Escreva aqui o conteúdo do post", 
+        disabled: (params[:action] == "show") %>
       </div>
     </div>
 
     <div class="input-row">
       <div class="input-container">
         <%= form.label :category_id, class:"label" %>
-        <%= form.select :category_id, options_from_collection_for_select(Category.all, 'id', :name, article.category_id), {}, { desabled: (params[:action] == "show"), class:"select" } %>
+        <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, 
+        article.category_id), {}, { disabled: (params[:action] == "show"), class:"select" } %>
       </div>
     </div>
 
     <div>
       <%= form.label :cover_image, style: "display: block", class: "label-input-file" %>
-      <%= form.file_field :cover_image %>
+      <%= form.file_field :cover_image, disabled: (params[:action] == "show") %>
   
       <div id=<%= dom_id(article) %>>
         <%= image_tag article.cover_image.variant(:thumb) if article.cover_image.attached? %>
 
         <%= link_to "Remover",
               destroy_cover_image_administrate_article_path(article),
-              data: { "turbo-confirm": "Tem certeza?", "turbo-method": :delete } if article.cover_image.attached? %>
+              data: { "turbo-confirm": "Tem certeza?", "turbo-method": :delete } if 
+              article.cover_image.attached? %>
       </div>
     </div>
     <%= form.submit style: "display: none;" %>

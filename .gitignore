@@ -11,7 +11,7 @@
 /.env*
 !/.env*.erb
 /.backlog.md
-
+.duvidas.md
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
