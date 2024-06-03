@@ -23,7 +23,7 @@ namespace :dev do
 
   def add_categories
     ["Ruby", "Rails", "WDL", "Linux"].each do |name|
-      Category.create!(name: name)
+      Category.create!(name:)
     end
   end
 
