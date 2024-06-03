@@ -10,8 +10,7 @@ module Administrate
     end
 
     # GET /categories/1 or /categories/1.json
-    def show
-    end
+    def show; end
 
     # # GET /categories/new
     def new
@@ -19,8 +18,7 @@ module Administrate
     end
 
     # # GET /categories/1/edit
-    def edit
-    end
+    def edit; end
 
     # # POST /categories or /categories.json
     def create
@@ -56,7 +54,7 @@ module Administrate
     def destroy
       respond_to do |format|
         format.html do
-          if @category.articles.count > 0
+          if @category.articles.count.positive?
             redirect_to(
               administrate_categories_url,
               alert: "Existem Artigos associados a essa categoria. Não é possível apagá-la.",
