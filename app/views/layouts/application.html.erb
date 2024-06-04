@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= "page-post-detail" if controller_name == "articles" %>">
     <%= render "layouts/shared/aplication/header" %>
     <%= yield %>
     <%= render "layouts/shared/aplication/footer" %>
